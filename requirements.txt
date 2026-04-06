@@ -1,0 +1,17 @@
+chromadb==1.5.5
+fastapi==0.135.3
+langchain_huggingface==1.2.1
+langchain_ollama==1.0.1
+langchain_text_splitters==1.1.1
+langgraph==1.1.6
+mlflow==3.10.0
+mlflow_skinny==3.10.0
+mlflow_tracing==3.10.0
+networkx==3.4.2
+networkx==3.5
+pydantic==2.12.5
+pymongo==4.16.0
+python-dotenv==1.2.2
+regex==2025.11.3
+structlog==25.5.0
+uvicorn==0.43.0
