@@ -4,14 +4,21 @@ What it is: A hybrid retrieval system combining graph-based search and semantic 
 
 What it does: It extracts entities and relationships from documents/emails/support tickets (or any data) , stores them in a graph + vector database, and answers coss-domain queries (by referencing both relationships and meanings).
 
-What's unique: Unlike typical GraphRAG systems that rely on LLM-generated graphs, Selene constructs a deterministic, schema-driven graph and uses it for reliable multi-hop relationship reasoning.
+What's unique: Selene is tuned particularly to answer dependency, ownership, and cross-document reasoning queries (e.g., “What is blocking X?” or “How does A affect B?”) with a strictrer structure enforced by PyDantic schemas. Selene does this by constructing a deterministic, schema-driven graph and uses it for reliable multi-hop relationship reasoning. 
+
+
+
+***
 
 ## Architecture: -
 <img width="711" height="530" alt="image" src="https://github.com/user-attachments/assets/0305bf2d-2e02-46e6-b1c3-3de4534aea67" />
 
+___
+
+# Structure Dynamics: -
 
 ```
-# Structure Dynamics: -
+
 
 The reason I engineered this hybrid retrieval architecture: -
 
@@ -28,6 +35,10 @@ The reason I engineered this hybrid retrieval architecture: -
   7. The result is a unified reasoning system where structure (graph), semantics (vector), and extracted knowledge (LLM) are jointly
      leveraged to answer complex, multi-hop queries.
 ```
+<br>
+
+</br>
+
 ## Features: -
 
 - **Hybrid Graph + Vector Retrieval**  
@@ -53,9 +64,30 @@ The reason I engineered this hybrid retrieval architecture: -
 
 - **Algorithmic Fusion via RRF (Pre-LLM)**  
   Applies Reciprocal Rank Fusion (RRF) to merge graph and vector evidence before LLM generation, avoiding prompt-level heuristics.
+<br>
+
+</br>
 
 ## UI Snips: -
-<tba>
+### 1. Constructed Knowledge Graph: -
+<img width="1916" height="1026" alt="image" src="https://github.com/user-attachments/assets/7cd797db-7ba4-4db7-9757-9745e968e408" />
+
+<img width="1919" height="1010" alt="image" src="https://github.com/user-attachments/assets/9f2ee594-c212-4857-9803-39c50f4f213e" />
+<sub>P.S Selecting one node will highlight all the connected nodes.</sub> 
+<br>
+
+</br>
+
+### 2. Main query interface: -
+<img width="1705" height="1018" alt="image" src="https://github.com/user-attachments/assets/675020c6-289d-44ec-8ef6-6c48ae5d64cb" />
+<sub> (Working yet on frontend formatting and prettier UI) .</sub> 
+<br>
+
+</br>
+
+### 3. Service endpoints: -
+<img width="1919" height="1041" alt="image" src="https://github.com/user-attachments/assets/9f276075-8388-4441-a585-5f84a1e03333" />
+
 
 ## API Endpoints: -
 
@@ -69,14 +101,37 @@ The reason I engineered this hybrid retrieval architecture: -
 - `GET /debug/graph?entity=name&hops=2` - View multi-hop graph neighborhood
 - `GET /stats` - System stats (documents, nodes, edges, chunks)
 
+<br>
+
+</br>
+
+## Tests: -
+
+| Query | Answer(summarized) | Remarks |
+|------|--------|---------|
+| Why is the Dashboard currently blocked? | Dashboard is blocked due to migration delays causing the user permission endpoint to be unavailable. It depends on Identity Service for permissions. | Works fine |
+| What is preventing the Payment Service from going live? | Payment Service cannot go live due to pending compliance certification and an unresolved rate limit upgrade. | Works fine |
+| Which components depend on the Identity Service, and why? | The system states Identity Service depends on migration, but no other components are clearly dependent on it. | Needs to be worked on |
+| What are the main risks affecting deployment readiness? | The main risks are migration delays, compliance delays, and rate limiting bottlenecks affecting system readiness. | Works fine |
+| What dependencies connect Payment Service to Analytics functionality? | Analytics Engine depends on payment event streams from the Payment Service to function correctly. | Works fine |
+| What is delaying sandbox testing, and how does it affect the timeline? | Sandbox testing depends on compliance certification and may be delayed by migration and rate limiting issues. | Needs to be worked on |
+
+Current limitations (I'm actively working on them):-
+
+- Entity linking handles explicit matches well but can be improved for implicit relationships.  
+- Query entity extraction works reliably, with room for better recall in edge cases.  
+- Multi-hop reasoning is functional but not fully consistent across indirect chains.  
+- Answer generation is grounded, with minor scope for improving precision in complex queries.
+
+<br>
+
+</br>
 
 ## Deployment: -
-
 With docker: -
 ```bash
 docker-compose up --build
 ```
-
 ### Manual Setup: -
 
 #### Backend: -
@@ -94,7 +149,6 @@ cd <project_root>/frontend
 npm install
 npm run dev -- --host 0.0.0.0 --port 5000
 ```
-
 
 ## Configuration: -
 The backend is configured via environment variables (see `.env.example`). Key parameters:
