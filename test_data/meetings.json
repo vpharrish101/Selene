@@ -1,0 +1,49 @@
+[
+  {
+    "title": "Sprint Planning Week 1",
+    "participants": ["Hanako", "Takemura", "Judy"],
+    "date": "2077-04-02T10:00:00",
+    "body": "Discussed API deadlines and dashboard requirements.",
+    "decisions": [
+      "API spec due April 10",
+      "Dashboard depends on Identity Service"
+    ],
+    "action_items": [
+      "Takemura: API work",
+      "Judy: dashboard design"
+    ],
+    "follow_ups": [
+      "Check migration status"
+    ]
+  },
+  {
+    "title": "Security Review",
+    "participants": ["Hanako", "Anders"],
+    "date": "2077-04-05T14:00:00",
+    "body": "Reviewed compliance progress.",
+    "decisions": [
+      "Proceed with testing after certification"
+    ],
+    "action_items": [
+      "Anders: complete certification"
+    ],
+    "follow_ups": [
+      "Schedule audit"
+    ]
+  },
+  {
+    "title": "Migration Sync",
+    "participants": ["Hanako"],
+    "date": "2077-04-06T10:00:00",
+    "body": "Migration has 12% inconsistent data.",
+    "decisions": [
+      "Fix data issues before cutover"
+    ],
+    "action_items": [
+      "Resolve duplicates"
+    ],
+    "follow_ups": [
+      "Revalidate data"
+    ]
+  }
+]

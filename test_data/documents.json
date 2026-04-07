@@ -1,0 +1,86 @@
+[
+  {
+    "title": "Project NeonGrid - System Overview",
+    "author": "Arasaka Systems Division",
+    "timestamp": "2077-04-01T09:00:00",
+    "source_path": "/docs/neongrid/overview.md",
+    "body": "Project NeonGrid is a city-scale digital payments and identity system for Night City.\n\nComponents:\n1. API Gateway - handles authentication and routing\n2. Payment Service - integrates with EuroBank API\n3. Identity Service - stores user profiles and permissions\n4. Analytics Engine - processes transaction streams\n5. Operator Dashboard - internal monitoring UI\n\nDependencies:\n- Payment Service depends on Compliance Certification\n- Identity Service depends on Legacy Data Migration\n- Dashboard depends on API Gateway and Analytics Engine\n- All services depend on Core Auth Service\n\nTimeline:\n- Phase 1 (April): API integration\n- Phase 2 (May): System testing\n- Phase 3 (June): Deployment"
+  },
+  {
+    "title": "Legacy System Migration Plan",
+    "author": "Hanako Arasaka",
+    "timestamp": "2077-04-02T10:00:00",
+    "source_path": "/docs/neongrid/migration.md",
+    "body": "Legacy database contains 1.8 million citizen records.\n\nSteps:\n1. Schema mapping complete\n2. Incremental sync in progress\n3. Cutover planned May 10\n\nRisks:\n- 12% data inconsistency\n- duplicate identity records\n- missing permission fields\n\nImpact:\nMigration delays will block Identity Service and downstream user APIs."
+  },
+  {
+    "title": "Payment Integration Guide",
+    "author": "Takemura Goro",
+    "timestamp": "2077-04-03T11:00:00",
+    "source_path": "/docs/neongrid/payment.md",
+    "body": "Payment Service integrates with EuroBank.\n\nEndpoints:\n- /payments/create\n- /payments/refund\n- /subscriptions/create\n\nConstraints:\n- Requires Compliance Certification before production\n- Rate limit: 120 req/sec\n\nKnown Issues:\n- Enterprise rate upgrade pending\n- Webhook must be deployed behind API Gateway"
+  },
+  {
+    "title": "Dashboard Requirements",
+    "author": "Judy Alvarez",
+    "timestamp": "2077-04-03T12:00:00",
+    "source_path": "/docs/neongrid/dashboard.md",
+    "body": "Dashboard requires:\n- real-time transaction status\n- analytics aggregation API\n- user permission management endpoint\n\nDependencies:\n- depends on Analytics Engine\n- depends on Identity Service (user permissions)\n\nBlockers:\n- user endpoints unavailable if migration incomplete"
+  },
+  {
+    "title": "Compliance Certification Overview",
+    "author": "Anders Hellman",
+    "timestamp": "2077-04-04T09:30:00",
+    "source_path": "/docs/neongrid/compliance.md",
+    "body": "Certification requirements:\n- encryption at rest\n- penetration testing\n- audit review\n\nTimeline:\n- encryption complete April 12\n- testing April 15-17\n- certification earliest April 20\n\nImpact:\nPayment Service cannot go live without certification."
+  },
+  {
+    "title": "Analytics Engine Design",
+    "author": "Alt Cunningham",
+    "timestamp": "2077-04-05T13:00:00",
+    "source_path": "/docs/neongrid/analytics.md",
+    "body": "Analytics Engine uses event streaming.\n\nInputs:\n- payment events\n- user activity logs\n\nOutputs:\n- dashboard metrics\n- fraud alerts\n\nDependency:\nrequires Payment Service event stream"
+  },
+  {
+    "title": "Core Auth Service",
+    "author": "NetWatch Division",
+    "timestamp": "2077-04-05T15:00:00",
+    "source_path": "/docs/neongrid/auth.md",
+    "body": "Handles authentication and token validation.\n\nAll services require Core Auth Service.\n\nFailure in auth blocks API Gateway and all downstream services."
+  },
+  {
+    "title": "API Gateway Design",
+    "author": "Takemura Goro",
+    "timestamp": "2077-04-06T09:00:00",
+    "source_path": "/docs/neongrid/api.md",
+    "body": "API Gateway handles routing and rate limiting.\n\nDependencies:\n- Core Auth Service\n\nRequired for:\n- Payment Service webhooks\n- Dashboard APIs"
+  },
+  {
+    "title": "Rate Limiting Risk Note",
+    "author": "Takemura Goro",
+    "timestamp": "2077-04-06T10:30:00",
+    "source_path": "/docs/neongrid/rate_limit.md",
+    "body": "Current limit is 120 req/sec.\nProjected need is 400 req/sec.\n\nRisk:\nmay cause transaction delays during peak load."
+  },
+  {
+    "title": "Deployment Plan",
+    "author": "Hanako Arasaka",
+    "timestamp": "2077-04-07T11:00:00",
+    "source_path": "/docs/neongrid/deploy.md",
+    "body": "Deployment requires:\n- completed migration\n- compliance certification\n- API readiness\n\nTarget date: June 5"
+  },
+  {
+    "title": "Identity Service Design",
+    "author": "Hanako Arasaka",
+    "timestamp": "2077-04-02T14:00:00",
+    "source_path": "/docs/neongrid/identity.md",
+    "body": "Identity Service stores profiles and permissions.\n\nDepends on:\n- migration\n\nProvides:\n- user endpoints\n- permission APIs"
+  },
+  {
+    "title": "Risk Summary",
+    "author": "Arasaka PMO",
+    "timestamp": "2077-04-07T16:00:00",
+    "source_path": "/docs/neongrid/risks.md",
+    "body": "Top risks:\n- migration delays\n- compliance delay\n- rate limiting bottleneck\n\nAll risks impact system readiness."
+  }
+]

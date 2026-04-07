@@ -1,0 +1,122 @@
+[
+  {
+    "sender": "Hanako Arasaka",
+    "recipients": ["Takemura Goro"],
+    "cc": [],
+    "subject": "API Integration Kickoff",
+    "body": "Finalize API specs by April 10. Payment sandbox testing planned April 18.",
+    "timestamp": "2077-04-01T10:00:00",
+    "thread_id": "ng-001",
+    "attachments": []
+  },
+  {
+    "sender": "Takemura Goro",
+    "recipients": ["Hanako Arasaka"],
+    "cc": [],
+    "subject": "Re: API Integration Kickoff",
+    "body": "Sandbox testing depends on compliance certification. Earliest April 20.",
+    "timestamp": "2077-04-02T12:00:00",
+    "thread_id": "ng-001",
+    "attachments": []
+  },
+  {
+    "sender": "Judy Alvarez",
+    "recipients": ["Hanako Arasaka"],
+    "cc": [],
+    "subject": "Dashboard Blocked",
+    "body": "User permission endpoint not available due to migration delays.",
+    "timestamp": "2077-04-03T14:00:00",
+    "thread_id": "ng-002",
+    "attachments": []
+  },
+  {
+    "sender": "Alt Cunningham",
+    "recipients": ["Takemura Goro"],
+    "cc": [],
+    "subject": "Analytics Dependency",
+    "body": "Analytics requires payment events to function correctly.",
+    "timestamp": "2077-04-04T11:00:00",
+    "thread_id": "ng-003",
+    "attachments": []
+  },
+  {
+    "sender": "Anders Hellman",
+    "recipients": ["Hanako Arasaka"],
+    "cc": [],
+    "subject": "Compliance Delay",
+    "body": "Certification will complete April 20, not earlier.",
+    "timestamp": "2077-04-05T15:00:00",
+    "thread_id": "ng-004",
+    "attachments": []
+  },
+  {
+    "sender": "Hanako Arasaka",
+    "recipients": ["Team"],
+    "cc": [],
+    "subject": "Status Update",
+    "body": "Migration and compliance are the main blockers.",
+    "timestamp": "2077-04-06T09:00:00",
+    "thread_id": "ng-005",
+    "attachments": []
+  },
+  {
+    "sender": "Takemura Goro",
+    "recipients": ["EuroBank"],
+    "cc": [],
+    "subject": "Rate Limit Increase",
+    "body": "Requesting upgrade to 400 req/sec.",
+    "timestamp": "2077-04-06T11:00:00",
+    "thread_id": "ng-006",
+    "attachments": []
+  },
+  {
+    "sender": "EuroBank",
+    "recipients": ["Takemura Goro"],
+    "cc": [],
+    "subject": "Re: Rate Limit",
+    "body": "Upgrade pending review.",
+    "timestamp": "2077-04-07T09:00:00",
+    "thread_id": "ng-006",
+    "attachments": []
+  },
+  {
+    "sender": "Hanako Arasaka",
+    "recipients": ["Judy Alvarez"],
+    "cc": [],
+    "subject": "Dashboard Timeline",
+    "body": "Dashboard depends on Identity Service readiness.",
+    "timestamp": "2077-04-07T10:00:00",
+    "thread_id": "ng-007",
+    "attachments": []
+  },
+  {
+    "sender": "NetWatch",
+    "recipients": ["Team"],
+    "cc": [],
+    "subject": "Auth Stability",
+    "body": "Auth downtime impacts all services.",
+    "timestamp": "2077-04-07T11:00:00",
+    "thread_id": "ng-008",
+    "attachments": []
+  },
+  {
+    "sender": "Hanako Arasaka",
+    "recipients": ["Alt Cunningham"],
+    "cc": [],
+    "subject": "Analytics Delay",
+    "body": "Analytics blocked until payment events flow.",
+    "timestamp": "2077-04-07T12:00:00",
+    "thread_id": "ng-009",
+    "attachments": []
+  },
+  {
+    "sender": "Takemura Goro",
+    "recipients": ["Hanako Arasaka"],
+    "cc": [],
+    "subject": "Webhook Issue",
+    "body": "Webhook must go through API Gateway before testing.",
+    "timestamp": "2077-04-07T13:00:00",
+    "thread_id": "ng-010",
+    "attachments": []
+  }
+]
